@@ -1,39 +1,115 @@
+import { CustomButton, CustomCard, StatCard } from '@/components/ui/custom';
+import { FileText, Users, FolderOpen, CheckCircle } from 'lucide-react';
+
 export default function Welcome() {
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-            <div className="max-w-2xl w-full">
-                <div className="bg-white rounded-2xl shadow-none p-8 md:p-12">
-                    <div className="text-center mb-8">
-                        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                            Welcome to Digital Arsip
-                        </h1>
-                        <p className="text-lg text-gray-600">
-                            Inertia.js v2 + React is successfully configured! 🎉
-                        </p>
-                    </div>
-
-                    <div className="space-y-4">
-                        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                            <h2 className="font-semibold text-green-900 mb-2">✅ Setup Complete</h2>
-                            <ul className="text-sm text-green-800 space-y-1">
-                                <li>• Inertia.js v2 Laravel adapter installed</li>
-                                <li>• React 18 configured</li>
-                                <li>• Tailwind CSS ready to use</li>
-                                <li>• Vite bundler configured</li>
-                            </ul>
-                        </div>
-
-                        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                            <h2 className="font-semibold text-blue-900 mb-2">📚 Next Steps</h2>
-                            <ul className="text-sm text-blue-800 space-y-1">
-                                <li>• Create more pages in <code className="bg-blue-100 px-1 rounded">resources/js/Pages/</code></li>
-                                <li>• Install shadcn/ui components</li>
-                                <li>• Build your features with clean architecture</li>
-                            </ul>
-                        </div>
-                    </div>
+        <div className="min-h-screen bg-[#F5F5F5] p-8">
+            <div className="max-w-7xl mx-auto">
+                {/* Header */}
+                <div className="text-center mb-12">
+                    <h1 className="text-5xl font-bold text-[#4A7EBB] mb-4">
+                        Digital Arsip
+                    </h1>
+                    <p className="text-xl text-neutral-600">
+                        PT Asando Karya - Document Management System
+                    </p>
                 </div>
+
+                {/* Stats Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <StatCard
+                        variant="blue"
+                        value="1,234"
+                        label="Total Arsip"
+                        icon={<FileText className="w-8 h-8" />}
+                    />
+                    <StatCard
+                        variant="orange"
+                        value="45"
+                        label="Kategori"
+                        icon={<FolderOpen className="w-8 h-8" />}
+                    />
+                    <StatCard
+                        variant="teal"
+                        value="12"
+                        label="Divisi"
+                        icon={<Users className="w-8 h-8" />}
+                    />
+                    <StatCard
+                        variant="darkblue"
+                        value="98%"
+                        label="Completion Rate"
+                        icon={<CheckCircle className="w-8 h-8" />}
+                    />
+                </div>
+
+                {/* Content Cards */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <CustomCard
+                        title="✅ Setup Complete"
+                        description="Inertia.js v2 + React + shadcn/ui successfully configured"
+                    >
+                        <ul className="space-y-2 text-neutral-700">
+                            <li>• Inertia.js v2 Laravel adapter installed</li>
+                            <li>• React 18 with JSX configured</li>
+                            <li>• Tailwind CSS v4 ready to use</li>
+                            <li>• shadcn/ui components installed</li>
+                            <li>• Custom components structure ready</li>
+                        </ul>
+                    </CustomCard>
+
+                    <CustomCard
+                        title="📚 Custom Components"
+                        description="All custom UI components are in components/ui/custom/"
+                    >
+                        <ul className="space-y-2 text-neutral-700">
+                            <li>• <code className="bg-neutral-100 px-2 py-1 rounded">CustomButton</code> - Branded buttons</li>
+                            <li>• <code className="bg-neutral-100 px-2 py-1 rounded">CustomCard</code> - Styled cards</li>
+                            <li>• <code className="bg-neutral-100 px-2 py-1 rounded">StatCard</code> - Statistics display</li>
+                            <li>• Follow <code className="bg-neutral-100 px-2 py-1 rounded">style_guidance_json.json</code></li>
+                        </ul>
+                    </CustomCard>
+                </div>
+
+                {/* Action Card */}
+                <CustomCard
+                    title="🎨 Design System"
+                    description="Following PT Asando Karya brand guidelines"
+                    footer={
+                        <div className="flex gap-3">
+                            <CustomButton variant="primary" size="md">
+                                Get Started
+                            </CustomButton>
+                            <CustomButton variant="secondary" size="md">
+                                View Docs
+                            </CustomButton>
+                            <CustomButton variant="ghost" size="md">
+                                Learn More
+                            </CustomButton>
+                        </div>
+                    }
+                >
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div>
+                            <div className="w-16 h-16 bg-[#4A7EBB] rounded-lg mb-2"></div>
+                            <p className="text-sm text-neutral-600">Primary</p>
+                        </div>
+                        <div>
+                            <div className="w-16 h-16 bg-[#F5845C] rounded-lg mb-2"></div>
+                            <p className="text-sm text-neutral-600">Secondary</p>
+                        </div>
+                        <div>
+                            <div className="w-16 h-16 bg-[#4CAF93] rounded-lg mb-2"></div>
+                            <p className="text-sm text-neutral-600">Success</p>
+                        </div>
+                        <div>
+                            <div className="w-16 h-16 bg-[#5B9BD5] rounded-lg mb-2"></div>
+                            <p className="text-sm text-neutral-600">Info</p>
+                        </div>
+                    </div>
+                </CustomCard>
             </div>
         </div>
     );
 }
+

@@ -1,0 +1,158 @@
+{
+    "projectName": "Digital Arsip - PT Asando Karya",
+    "version": "1.0.0",
+    "lastUpdated": "2025-12-29",
+    "coreRules": {
+        "language": {
+            "code": "English",
+            "comments": "Bahasa Indonesia",
+            "documentation": "Bahasa Indonesia"
+        },
+        "framework": {
+            "backend": "Laravel 12",
+            "frontend": "React 18 with Inertia.js v2.0",
+            "styling": "Tailwind CSS v4"
+        },
+        "architecture": {
+            "backend": "Clean Architecture (Service layer, Form Request, NO Repository Pattern)",
+            "frontend": "Component-based with custom UI components"
+        }
+    },
+    "uiComponentRules": {
+        "shadcnUsage": {
+            "installation": {
+                "command": "npx shadcn@latest add [component-name]",
+                "description": "Always use npx shadcn@latest for every shadcn component needed",
+                "example": "npx shadcn@latest add button card input"
+            },
+            "location": "resources/js/components/ui/",
+            "doNotModify": "Never modify shadcn components directly in components/ui/",
+            "importFrom": "Only import shadcn components for wrapping in custom components"
+        },
+        "customComponents": {
+            "location": "resources/js/components/ui/custom/",
+            "naming": "PascalCase (e.g., CustomButton, DataCard, StatsWidget)",
+            "structure": {
+                "description": "All custom components must be in components/ui/custom/",
+                "template": "Use shadcn components as base, wrap with custom styling",
+                "styling": "Follow style_guidance_json.json for all custom components"
+            },
+            "usage": {
+                "rule": "ALWAYS use components from components/ui/custom/ for entire project",
+                "forbidden": "NO inline coding, NO direct Tailwind classes in pages",
+                "import": "import { CustomButton } from '@/components/ui/custom/CustomButton'"
+            }
+        },
+        "styleGuidance": {
+            "source": "style_guidance_json.json",
+            "colors": {
+                "primary": "#4A7EBB",
+                "secondary": "#F5845C",
+                "success": "#4CAF93",
+                "info": "#5B9BD5"
+            },
+            "components": {
+                "card": {
+                    "shadow": "shadow-none",
+                    "rule": "When making card, always use className='shadow-none'"
+                },
+                "button": {
+                    "borderRadius": "rounded-md",
+                    "transition": "transition-all duration-200"
+                }
+            },
+            "fontFamily": "Inter",
+            "icons": "lucide-react"
+        }
+    },
+    "developmentWorkflow": {
+        "addingNewFeature": [
+            "1. Check if shadcn component exists for base UI element",
+            "2. If yes: run 'npx shadcn@latest add [component]'",
+            "3. Create custom wrapper in components/ui/custom/",
+            "4. Apply style_guidance_json.json design tokens",
+            "5. Export custom component for project use",
+            "6. Use custom component in pages/features"
+        ],
+        "componentStructure": {
+            "shadcnBase": "resources/js/components/ui/button.jsx",
+            "customWrapper": "resources/js/components/ui/custom/CustomButton.jsx",
+            "usage": "import { CustomButton } from '@/components/ui/custom/CustomButton'",
+            "example": "// CustomButton wraps shadcn Button with brand colors"
+        }
+    },
+    "codingStandards": {
+        "react": {
+            "fileExtension": ".jsx for components with JSX",
+            "hooks": "Use React hooks appropriately",
+            "props": "Destructure props in function parameters",
+            "exports": "Use named exports for components"
+        },
+        "styling": {
+            "approach": "Component-based, no inline Tailwind in pages",
+            "tailwind": "Only in custom components, following style_guidance_json.json",
+            "consistency": "Use design tokens from style_guidance_json.json"
+        },
+        "imports": {
+            "order": [
+                "1. React imports",
+                "2. Third-party libraries",
+                "3. Inertia imports",
+                "4. Custom components",
+                "5. Utils/helpers",
+                "6. Styles"
+            ],
+            "alias": "Use @ alias for src imports (e.g., @/components/ui/custom/)"
+        }
+    },
+    "fileStructure": {
+        "components": {
+            "shadcn": "resources/js/components/ui/",
+            "custom": "resources/js/components/ui/custom/",
+            "pages": "resources/js/Pages/",
+            "layouts": "resources/js/Layouts/"
+        },
+        "backend": {
+            "controllers": "app/Http/Controllers/",
+            "services": "app/Services/",
+            "requests": "app/Http/Requests/",
+            "models": "app/Models/"
+        }
+    },
+    "bestPractices": {
+        "doAlways": [
+            "Use npx shadcn@latest for base UI components",
+            "Create custom wrappers in components/ui/custom/",
+            "Follow style_guidance_json.json design system",
+            "Use className='shadow-none' for cards",
+            "Import from custom components, not shadcn directly",
+            "Write component names in PascalCase",
+            "Use lucide-react for icons",
+            "Apply clean architecture in backend"
+        ],
+        "neverDo": [
+            "Modify shadcn components directly",
+            "Write inline Tailwind in Pages",
+            "Use repository pattern in backend",
+            "Hardcode colors, use design tokens instead",
+            "Mix Indonesian and English in code",
+            "Run npm run dev unless requested"
+        ]
+    },
+    "examples": {
+        "customComponent": {
+            "file": "resources/js/components/ui/custom/CustomButton.jsx",
+            "code": "import { Button } from '@/components/ui/button'\n\nexport function CustomButton({ variant = 'primary', children, ...props }) {\n  const variants = {\n    primary: 'bg-[#4A7EBB] hover:bg-[#3B6296] text-white',\n    secondary: 'bg-[#F5845C] hover:bg-[#F25E2B] text-white'\n  }\n  return (\n    <Button className={`rounded-md transition-all duration-200 ${variants[variant]}`} {...props}>\n      {children}\n    </Button>\n  )\n}"
+        },
+        "usage": {
+            "file": "resources/js/Pages/Dashboard.jsx",
+            "code": "import { CustomButton } from '@/components/ui/custom/CustomButton'\n\nexport default function Dashboard() {\n  return (\n    <div>\n      <CustomButton variant='primary'>Save</CustomButton>\n    </div>\n  )\n}"
+        }
+    },
+    "references": {
+        "styleGuide": "style_guidance_json.json",
+        "shadcnDocs": "https://ui.shadcn.com",
+        "inertiaDocs": "https://inertiajs.com/docs/v2",
+        "tailwindDocs": "https://tailwindcss.com"
+    }
+}
