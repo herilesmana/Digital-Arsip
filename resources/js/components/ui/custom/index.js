@@ -6,3 +6,4 @@ export { CustomCard } from './CustomCard';
 export { StatCard } from './StatCard';
 export { CustomInput } from './CustomInput';
 export { LoginForm } from './LoginForm';
+export { CustomSidebar } from './CustomSidebar';

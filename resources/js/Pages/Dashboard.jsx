@@ -1,51 +1,15 @@
-import { router } from '@inertiajs/react';
-import { CustomButton, CustomCard, StatCard } from '@/components/ui/custom';
-import { FileText, Users, FolderOpen, CheckCircle, LogOut, Menu } from 'lucide-react';
+import AppLayout from '@/Layouts/AppLayout';
+import { CustomCard, StatCard } from '@/components/ui/custom';
+import { FileText, Users, FolderOpen, CheckCircle } from 'lucide-react';
 
 /**
  * Dashboard Page
- * Halaman utama setelah login
+ * Halaman utama setelah login dengan sidebar
  */
 export default function Dashboard({ auth }) {
-    const handleLogout = () => {
-        router.post(route('logout'));
-    };
-
     return (
-        <div className="min-h-screen bg-[#F5F5F5]">
-            {/* Navbar */}
-            <nav className="bg-[#4A7EBB] text-white shadow-md">
-                <div className="max-w-7xl mx-auto px-6 py-4">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-3">
-                            <FileText className="w-8 h-8" />
-                            <div>
-                                <h1 className="text-xl font-bold">Digital Arsip</h1>
-                                <p className="text-xs opacity-90">PT Asando Karya</p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center space-x-4">
-                            <div className="text-right">
-                                <p className="text-sm font-medium">{auth.user.nama}</p>
-                                <p className="text-xs opacity-90 capitalize">{auth.user.role}</p>
-                            </div>
-                            <CustomButton
-                                variant="ghost"
-                                size="sm"
-                                onClick={handleLogout}
-                                className="bg-white/10 hover:bg-white/20 text-white"
-                            >
-                                <LogOut className="w-4 h-4 mr-2" />
-                                Logout
-                            </CustomButton>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-
-            {/* Main Content */}
-            <main className="max-w-7xl mx-auto p-6 space-y-6">
+        <AppLayout auth={auth} title="Dashboard">
+            <div className="space-y-6">
                 {/* Welcome Card */}
                 <CustomCard>
                     <div className="flex items-center justify-between">
@@ -88,24 +52,8 @@ export default function Dashboard({ auth }) {
                     />
                 </div>
 
-                {/* Quick Actions */}
+                {/* Recent Activity */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <CustomCard
-                        title="Quick Actions"
-                        description="Aksi cepat untuk mengelola arsip"
-                    >
-                        <div className="space-y-3">
-                            <CustomButton variant="primary" className="w-full">
-                                <FileText className="w-4 h-4 mr-2" />
-                                Upload Arsip Baru
-                            </CustomButton>
-                            <CustomButton variant="secondary" className="w-full">
-                                <FolderOpen className="w-4 h-4 mr-2" />
-                                Browse Arsip
-                            </CustomButton>
-                        </div>
-                    </CustomCard>
-
                     <CustomCard
                         title="Recent Activity"
                         description="Aktivitas terbaru sistem"
@@ -131,8 +79,29 @@ export default function Dashboard({ auth }) {
                             </div>
                         </div>
                     </CustomCard>
+
+                    <CustomCard
+                        title="System Info"
+                        description="Informasi sistem"
+                    >
+                        <div className="space-y-3">
+                            <div className="flex justify-between items-center">
+                                <span className="text-sm text-neutral-600">Total Users</span>
+                                <span className="text-sm font-medium text-neutral-900">24</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <span className="text-sm text-neutral-600">Storage Used</span>
+                                <span className="text-sm font-medium text-neutral-900">2.4 GB</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <span className="text-sm text-neutral-600">Last Backup</span>
+                                <span className="text-sm font-medium text-neutral-900">Today, 03:00 AM</span>
+                            </div>
+                        </div>
+                    </CustomCard>
                 </div>
-            </main>
-        </div>
+            </div>
+        </AppLayout>
     );
 }
+

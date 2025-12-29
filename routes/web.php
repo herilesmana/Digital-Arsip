@@ -17,9 +17,31 @@ Route::middleware('guest')->group(function () {
 
 // Authenticated routes
 Route::middleware('auth')->group(function () {
+    // Dashboard
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
     
+    // Data Arsip
+    Route::get('/arsip', function () {
+        return Inertia::render('Arsip/Index');
+    })->name('arsip.index');
+    
+    // Laporan
+    Route::get('/laporan', function () {
+        return Inertia::render('Laporan/Index');
+    })->name('laporan.index');
+    
+    // Master Pengguna
+    Route::get('/pengguna', function () {
+        return Inertia::render('Pengguna/Index');
+    })->name('pengguna.index');
+    
+    // Master Divisi
+    Route::get('/divisi', function () {
+        return Inertia::render('Divisi/Index');
+    })->name('divisi.index');
+    
+    // Logout
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 });
