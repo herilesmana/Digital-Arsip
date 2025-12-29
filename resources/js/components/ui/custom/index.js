@@ -12,3 +12,4 @@ export { CustomTextarea } from './CustomTextarea';
 export { CustomSidebar } from './CustomSidebar';
 export { LoginForm } from './LoginForm';
 export { StatCard } from './StatCard';
+export { default as KategoriModal } from './KategoriModal';

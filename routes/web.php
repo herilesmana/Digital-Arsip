@@ -26,6 +26,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('arsip', \App\Http\Controllers\ArsipController::class);
     Route::delete('/arsip-file/{id}', [\App\Http\Controllers\ArsipController::class, 'deleteFile'])->name('arsip.deleteFile');
     
+    // Kategori Arsip API
+    Route::post('/api/kategori-arsip', [\App\Http\Controllers\KategoriArsipController::class, 'store'])->name('api.kategori.store');
+    
     // Laporan
     Route::get('/laporan', function () {
         return Inertia::render('Laporan/Index');

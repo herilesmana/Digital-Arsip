@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import AppLayout from '@/Layouts/AppLayout';
-import { CustomCard, CustomButton, CustomInput, CustomTextarea, CustomSelect, CustomDatePicker, CustomFileUpload } from '@/components/ui/custom';
+import { CustomCard, CustomButton, CustomInput, CustomTextarea, CustomSelect, CustomDatePicker, CustomFileUpload, KategoriModal } from '@/components/ui/custom';
 import { ArrowLeft, Save, X, Download } from 'lucide-react';
 import { Link, useForm, router } from '@inertiajs/react';
 import { format } from 'date-fns';
@@ -9,6 +10,8 @@ import { format } from 'date-fns';
  * Form untuk mengedit data arsip tanpa modal
  */
 export default function ArsipEdit({ auth, arsip, kategori, divisi }) {
+    const [kategoriList, setKategoriList] = useState(kategori);
+
     const { data, setData, post, processing, errors } = useForm({
         judul_arsip: arsip.judul_arsip || '',
         id_kategori: arsip.id_kategori?.toString() || '',
@@ -43,7 +46,15 @@ export default function ArsipEdit({ auth, arsip, kategori, divisi }) {
         }
     };
 
-    const kategoriOptions = kategori.map(k => ({
+    // Handle success kategori creation
+    const handleKategoriSuccess = (newKategori) => {
+        // Add new kategori to list
+        setKategoriList([...kategoriList, newKategori]);
+        // Auto-select the new kategori
+        setData('id_kategori', newKategori.id_kategori.toString());
+    };
+
+    const kategoriOptions = kategoriList.map(k => ({
         value: k.id_kategori.toString(),
         label: k.nama_kategori
     }));
@@ -133,15 +144,25 @@ export default function ArsipEdit({ auth, arsip, kategori, divisi }) {
                             required
                         />
 
-                        <CustomSelect
-                            label="Kategori"
-                            placeholder="Pilih kategori arsip"
-                            options={kategoriOptions}
-                            value={data.id_kategori}
-                            onValueChange={(value) => setData('id_kategori', value)}
-                            error={errors.id_kategori}
-                            required
-                        />
+                        {/* Kategori */}
+                        <div className="space-y-2">
+                            <label className="block text-sm font-medium text-gray-700">
+                                Kategori <span className="text-red-500">*</span>
+                            </label>
+                            <div className="flex items-start gap-2">
+                                <div className="">
+                                    <CustomSelect
+                                        placeholder="Pilih kategori arsip"
+                                        options={kategoriOptions}
+                                        value={data.id_kategori}
+                                        onValueChange={(value) => setData('id_kategori', value)}
+                                        error={errors.id_kategori}
+                                        required
+                                    />
+                                </div>
+                                <KategoriModal onSuccess={handleKategoriSuccess} />
+                            </div>
+                        </div>
 
                         <CustomSelect
                             label="Divisi"
