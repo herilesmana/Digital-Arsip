@@ -1,0 +1,314 @@
+{
+  "brandName": "PT Asando Karya Digital Arsip",
+  "designSystem": {
+    "colors": {
+      "primary": {
+        "DEFAULT": "#4A7EBB",
+        "50": "#EBF2FA",
+        "100": "#D7E5F5",
+        "200": "#AFCBEB",
+        "300": "#87B1E0",
+        "400": "#5F97D6",
+        "500": "#4A7EBB",
+        "600": "#3B6296",
+        "700": "#2C4A71",
+        "800": "#1E314B",
+        "900": "#0F1926"
+      },
+      "secondary": {
+        "DEFAULT": "#F5845C",
+        "50": "#FEF3EF",
+        "100": "#FDE7DF",
+        "200": "#FBCFBF",
+        "300": "#F9B79F",
+        "400": "#F79F7F",
+        "500": "#F5845C",
+        "600": "#F25E2B",
+        "700": "#D64210",
+        "800": "#A5330C",
+        "900": "#742408"
+      },
+      "success": {
+        "DEFAULT": "#4CAF93",
+        "50": "#EAF7F3",
+        "100": "#D5EFE7",
+        "200": "#ABDFCF",
+        "300": "#81CFB7",
+        "400": "#57BF9F",
+        "500": "#4CAF93",
+        "600": "#3D8C76",
+        "700": "#2E6958",
+        "800": "#1F463B",
+        "900": "#0F231D"
+      },
+      "info": {
+        "DEFAULT": "#5B9BD5",
+        "50": "#EDF5FC",
+        "100": "#DBEBF9",
+        "200": "#B7D7F3",
+        "300": "#93C3ED",
+        "400": "#6FAFE7",
+        "500": "#5B9BD5",
+        "600": "#3D7CB8",
+        "700": "#2E5D8A",
+        "800": "#1F3E5C",
+        "900": "#0F1F2E"
+      },
+      "neutral": {
+        "DEFAULT": "#64748B",
+        "50": "#F8FAFC",
+        "100": "#F1F5F9",
+        "200": "#E2E8F0",
+        "300": "#CBD5E1",
+        "400": "#94A3B8",
+        "500": "#64748B",
+        "600": "#475569",
+        "700": "#334155",
+        "800": "#1E293B",
+        "900": "#0F172A"
+      },
+      "background": {
+        "DEFAULT": "#F5F5F5",
+        "light": "#FAFAFA",
+        "dark": "#EEEEEE"
+      },
+      "surface": {
+        "DEFAULT": "#FFFFFF",
+        "hover": "#F9FAFB"
+      }
+    },
+    "typography": {
+      "fontFamily": {
+        "sans": ["Inter", "system-ui", "-apple-system", "sans-serif"],
+        "display": ["Inter", "system-ui", "sans-serif"]
+      },
+      "fontSize": {
+        "xs": "0.75rem",
+        "sm": "0.875rem",
+        "base": "1rem",
+        "lg": "1.125rem",
+        "xl": "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "1.875rem",
+        "4xl": "2.25rem",
+        "5xl": "3rem"
+      },
+      "fontWeight": {
+        "normal": "400",
+        "medium": "500",
+        "semibold": "600",
+        "bold": "700"
+      },
+      "lineHeight": {
+        "tight": "1.25",
+        "normal": "1.5",
+        "relaxed": "1.75"
+      }
+    },
+    "spacing": {
+      "xs": "0.25rem",
+      "sm": "0.5rem",
+      "md": "1rem",
+      "lg": "1.5rem",
+      "xl": "2rem",
+      "2xl": "3rem",
+      "3xl": "4rem"
+    },
+    "borderRadius": {
+      "none": "0",
+      "sm": "0.25rem",
+      "DEFAULT": "0.5rem",
+      "md": "0.5rem",
+      "lg": "0.75rem",
+      "xl": "1rem",
+      "full": "9999px"
+    },
+    "shadows": {
+      "sm": "0 1px 2px rgba(0, 0, 0, 0.05)",
+      "DEFAULT": "0 2px 8px rgba(0, 0, 0, 0.08)",
+      "md": "0 4px 12px rgba(0, 0, 0, 0.1)",
+      "lg": "0 8px 16px rgba(0, 0, 0, 0.12)",
+      "xl": "0 12px 24px rgba(0, 0, 0, 0.15)"
+    }
+  },
+  "components": {
+    "navbar": {
+      "height": "4rem",
+      "background": "primary.DEFAULT",
+      "textColor": "white",
+      "shadow": "md",
+      "padding": "0 1.5rem"
+    },
+    "sidebar": {
+      "width": "16rem",
+      "background": "surface.DEFAULT",
+      "borderRight": "1px solid neutral.200",
+      "itemPadding": "0.75rem 1rem",
+      "itemHoverBg": "primary.50",
+      "itemActiveBg": "primary.100",
+      "itemActiveColor": "primary.DEFAULT",
+      "iconSize": "1.25rem",
+      "fontSize": "0.875rem"
+    },
+    "card": {
+      "background": "surface.DEFAULT",
+      "borderRadius": "md",
+      "shadow": "DEFAULT",
+      "padding": "1.5rem",
+      "hoverShadow": "md",
+      "transition": "all 0.2s ease"
+    },
+    "statCard": {
+      "variants": {
+        "blue": {
+          "background": "#5B9BD5",
+          "textColor": "white"
+        },
+        "orange": {
+          "background": "#F5845C",
+          "textColor": "white"
+        },
+        "teal": {
+          "background": "#4CAF93",
+          "textColor": "white"
+        },
+        "darkblue": {
+          "background": "#4A7EBB",
+          "textColor": "white"
+        }
+      },
+      "padding": "1.5rem",
+      "borderRadius": "lg",
+      "shadow": "DEFAULT",
+      "valueSize": "3xl",
+      "valueFontWeight": "bold",
+      "labelSize": "sm",
+      "labelOpacity": "0.9"
+    },
+    "button": {
+      "borderRadius": "md",
+      "fontWeight": "medium",
+      "transition": "all 0.2s ease",
+      "variants": {
+        "primary": {
+          "background": "primary.DEFAULT",
+          "textColor": "white",
+          "hoverBackground": "primary.600"
+        },
+        "secondary": {
+          "background": "neutral.100",
+          "textColor": "neutral.700",
+          "hoverBackground": "neutral.200"
+        },
+        "ghost": {
+          "background": "transparent",
+          "textColor": "neutral.700",
+          "hoverBackground": "neutral.100"
+        }
+      },
+      "sizes": {
+        "sm": {
+          "padding": "0.5rem 1rem",
+          "fontSize": "sm"
+        },
+        "md": {
+          "padding": "0.75rem 1.5rem",
+          "fontSize": "base"
+        },
+        "lg": {
+          "padding": "1rem 2rem",
+          "fontSize": "lg"
+        }
+      }
+    },
+    "input": {
+      "borderRadius": "md",
+      "border": "1px solid neutral.300",
+      "focusBorder": "primary.DEFAULT",
+      "padding": "0.75rem 1rem",
+      "fontSize": "base",
+      "transition": "all 0.2s ease"
+    },
+    "listItem": {
+      "padding": "0.75rem 1rem",
+      "borderBottom": "1px solid neutral.200",
+      "hoverBackground": "neutral.50",
+      "iconSize": "1.25rem",
+      "iconColor": "primary.DEFAULT",
+      "transition": "background 0.15s ease"
+    },
+    "badge": {
+      "borderRadius": "full",
+      "padding": "0.25rem 0.75rem",
+      "fontSize": "xs",
+      "fontWeight": "medium",
+      "variants": {
+        "default": {
+          "background": "primary.100",
+          "textColor": "primary.700"
+        },
+        "success": {
+          "background": "success.100",
+          "textColor": "success.700"
+        },
+        "warning": {
+          "background": "secondary.100",
+          "textColor": "secondary.700"
+        }
+      }
+    }
+  },
+  "layout": {
+    "maxWidth": "1440px",
+    "containerPadding": "1.5rem",
+    "gridGap": "1rem",
+    "sectionSpacing": "2rem"
+  },
+  "iconography": {
+    "library": "lucide-react",
+    "defaultSize": "1.25rem",
+    "strokeWidth": "2"
+  },
+  "animations": {
+    "transition": {
+      "fast": "150ms ease",
+      "base": "200ms ease",
+      "slow": "300ms ease"
+    },
+    "hover": {
+      "scale": "1.02",
+      "translateY": "-2px"
+    }
+  },
+  "breakpoints": {
+    "sm": "640px",
+    "md": "768px",
+    "lg": "1024px",
+    "xl": "1280px",
+    "2xl": "1536px"
+  },
+  "usage": {
+    "description": "Style guidance untuk redesign shadcn/ui mengikuti design system PT Asando Karya Digital Arsip",
+    "notes": [
+      "Gunakan warna primary untuk navigasi dan elemen utama",
+      "StatCard menggunakan warna khusus sesuai kategori data",
+      "Pertahankan konsistensi spacing dan shadow",
+      "Gunakan lucide-react untuk ikon",
+      "Implementasikan hover states untuk interaktivitas",
+      "Grid 4 kolom untuk stat cards pada desktop",
+      "Grid 2 kolom untuk content sections",
+      "Sidebar fixed dengan navigasi vertikal"
+    ],
+    "tailwindIntegration": {
+      "configPath": "tailwind.config.js",
+      "extends": [
+        "colors",
+        "fontFamily",
+        "fontSize",
+        "spacing",
+        "borderRadius",
+        "boxShadow"
+      ]
+    }
+  }
+}
