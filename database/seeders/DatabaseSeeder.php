@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Divisi;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -30,6 +31,27 @@ class DatabaseSeeder extends Seeder
             'username' => 'user',
             'password' => Hash::make('password'),
             'role' => 'user',
+        ]);
+
+        // Create default divisi
+        Divisi::create([
+            'nama_divisi' => 'IT & Sistem Informasi',
+            'keterangan' => 'Divisi yang menangani teknologi informasi dan sistem',
+        ]);
+
+        Divisi::create([
+            'nama_divisi' => 'Human Resource',
+            'keterangan' => 'Divisi yang menangani sumber daya manusia',
+        ]);
+
+        Divisi::create([
+            'nama_divisi' => 'Keuangan & Akuntansi',
+            'keterangan' => 'Divisi yang menangani keuangan dan pembukuan',
+        ]);
+
+        Divisi::create([
+            'nama_divisi' => 'Operasional',
+            'keterangan' => 'Divisi yang menangani operasional perusahaan',
         ]);
     }
 }

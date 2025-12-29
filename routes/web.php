@@ -35,12 +35,8 @@ Route::middleware('auth')->group(function () {
     // Master Pengguna (Admin Only)
     Route::middleware('admin')->group(function () {
         Route::resource('pengguna', \App\Http\Controllers\PenggunaController::class);
+        Route::resource('divisi', \App\Http\Controllers\DivisiController::class);
     });
-    
-    // Master Divisi
-    Route::get('/divisi', function () {
-        return Inertia::render('Divisi/Index');
-    })->name('divisi.index');
     
     // Logout
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');

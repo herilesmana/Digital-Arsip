@@ -63,6 +63,7 @@ export function CustomSidebar({ user, ...props }) {
             title: 'Master Divisi',
             url: 'divisi.index',
             icon: Building2,
+            adminOnly: true, // Only visible for admin
         },
     ];
 
