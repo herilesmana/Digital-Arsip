@@ -32,10 +32,10 @@ Route::middleware('auth')->group(function () {
         return Inertia::render('Laporan/Index');
     })->name('laporan.index');
     
-    // Master Pengguna
-    Route::get('/pengguna', function () {
-        return Inertia::render('Pengguna/Index');
-    })->name('pengguna.index');
+    // Master Pengguna (Admin Only)
+    Route::middleware('admin')->group(function () {
+        Route::resource('pengguna', \App\Http\Controllers\PenggunaController::class);
+    });
     
     // Master Divisi
     Route::get('/divisi', function () {

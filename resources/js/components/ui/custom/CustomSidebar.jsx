@@ -57,6 +57,7 @@ export function CustomSidebar({ user, ...props }) {
             title: 'Master Pengguna',
             url: 'pengguna.index',
             icon: Users,
+            adminOnly: true, // Only visible for admin
         },
         {
             title: 'Master Divisi',
@@ -64,6 +65,14 @@ export function CustomSidebar({ user, ...props }) {
             icon: Building2,
         },
     ];
+
+    // Filter menu items based on user role
+    const visibleMenuItems = menuItems.filter(item => {
+        if (item.adminOnly) {
+            return user?.role === 'admin';
+        }
+        return true;
+    });
 
     const handleNavigation = (routeName) => {
         router.get(route(routeName));
@@ -96,7 +105,7 @@ export function CustomSidebar({ user, ...props }) {
                     </SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
-                            {menuItems.map((item) => {
+                            {visibleMenuItems.map((item) => {
                                 const Icon = item.icon;
                                 const isActive = route().current(item.url);
 

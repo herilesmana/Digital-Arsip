@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
  * CustomButton - Tombol dengan design system Digital Arsip
  * 
  * @param {Object} props
- * @param {'primary'|'secondary'|'success'|'ghost'} props.variant - Varian tombol
+ * @param {'primary'|'secondary'|'success'|'danger'|'ghost'} props.variant - Varian tombol
  * @param {'sm'|'md'|'lg'} props.size - Ukuran tombol
  * @param {React.ReactNode} props.children - Konten tombol
  * @param {Object} props.rest - Props lainnya yang diteruskan ke Button
@@ -25,6 +25,7 @@ export function CustomButton({
         primary: 'bg-[#4A7EBB] hover:bg-[#3B6296] text-white font-medium',
         secondary: 'bg-[#F5845C] hover:bg-[#F25E2B] text-white font-medium',
         success: 'bg-[#4CAF93] hover:bg-[#3D8C76] text-white font-medium',
+        danger: 'bg-red-600 hover:bg-red-700 text-white font-medium',
         ghost: 'bg-transparent hover:bg-neutral-100 text-neutral-700',
     };
 

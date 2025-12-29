@@ -3,7 +3,9 @@
 
 export { CustomButton } from './CustomButton';
 export { CustomCard } from './CustomCard';
-export { StatCard } from './StatCard';
 export { CustomInput } from './CustomInput';
-export { LoginForm } from './LoginForm';
+export { CustomSelect } from './CustomSelect';
+export { CustomTable } from './CustomTable';
 export { CustomSidebar } from './CustomSidebar';
+export { LoginForm } from './LoginForm';
+export { StatCard } from './StatCard';

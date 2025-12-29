@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\EnsureUserIsAdmin;
 use App\Http\Middleware\HandleInertiaRequests;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -15,7 +16,20 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [
             HandleInertiaRequests::class,
         ]);
+        
+        $middleware->alias([
+            'admin' => EnsureUserIsAdmin::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
+        // Handle 403 Forbidden error with custom Inertia page
+        $exceptions->respond(function ($response, $exception, $request) {
+            if ($response->getStatusCode() === 403 && $request->expectsJson() === false) {
+                return \Inertia\Inertia::render('Errors/403')
+                    ->toResponse($request)
+                    ->setStatusCode(403);
+            }
+            
+            return $response;
+        });
     })->create();
