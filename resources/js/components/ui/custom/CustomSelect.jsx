@@ -52,7 +52,7 @@ export function CustomSelect({
             <Select value={value} onValueChange={onValueChange} {...props}>
                 <SelectTrigger
                     className={cn(
-                        "border-neutral-300 focus:border-[#4A7EBB] focus:ring-[#4A7EBB]/20 rounded-md transition-all duration-200",
+                        "w-full border-neutral-300 focus:border-[#4A7EBB] focus:ring-[#4A7EBB]/20 rounded-md transition-all duration-200",
                         error && "border-red-500 focus:border-red-500 focus:ring-red-500/20",
                         className
                     )}

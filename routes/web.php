@@ -30,9 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/api/kategori-arsip', [\App\Http\Controllers\KategoriArsipController::class, 'store'])->name('api.kategori.store');
     
     // Laporan
-    Route::get('/laporan', function () {
-        return Inertia::render('Laporan/Index');
-    })->name('laporan.index');
+    Route::get('/laporan', [\App\Http\Controllers\LaporanController::class, 'index'])->name('laporan.index');
+    Route::post('/laporan/export', [\App\Http\Controllers\LaporanController::class, 'export'])->name('laporan.export');
     
     // Master Pengguna (Admin Only)
     Route::middleware('admin')->group(function () {

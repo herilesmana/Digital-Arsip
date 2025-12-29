@@ -4,6 +4,7 @@
 export { CustomButton } from './CustomButton';
 export { CustomCard } from './CustomCard';
 export { CustomDatePicker } from './CustomDatePicker';
+export { CustomDateRangePicker } from './CustomDateRangePicker';
 export { CustomFileUpload } from './CustomFileUpload';
 export { CustomInput } from './CustomInput';
 export { CustomSelect } from './CustomSelect';
