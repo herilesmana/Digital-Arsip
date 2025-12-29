@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('arsip_file', function (Blueprint $table) {
             $table->id('id_file');
-            $table->foreignId('id_arsip')->constrained('arsip')->cascadeOnDelete();
+            $table->foreignId('id_arsip')->constrained('arsip', 'id_arsip')->cascadeOnDelete();
             $table->string('nama_file', 255);
             $table->string('path_file', 255);
             $table->string('tipe_file', 20);

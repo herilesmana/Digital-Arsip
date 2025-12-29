@@ -23,9 +23,8 @@ Route::middleware('auth')->group(function () {
     })->name('dashboard');
     
     // Data Arsip
-    Route::get('/arsip', function () {
-        return Inertia::render('Arsip/Index');
-    })->name('arsip.index');
+    Route::resource('arsip', \App\Http\Controllers\ArsipController::class);
+    Route::delete('/arsip-file/{id}', [\App\Http\Controllers\ArsipController::class, 'deleteFile'])->name('arsip.deleteFile');
     
     // Laporan
     Route::get('/laporan', function () {

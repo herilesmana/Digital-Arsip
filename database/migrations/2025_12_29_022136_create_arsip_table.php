@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('arsip', function (Blueprint $table) {
             $table->id('id_arsip');
             $table->string('judul_arsip', 150);
-            $table->foreignId('id_kategori')->constrained('kategori_arsip')->cascadeOnDelete();
-            $table->foreignId('id_divisi')->constrained('divisi')->cascadeOnDelete();
+            $table->foreignId('id_kategori')->constrained('kategori_arsip', 'id_kategori')->cascadeOnDelete();
+            $table->foreignId('id_divisi')->constrained('divisi', 'id_divisi')->cascadeOnDelete();
             $table->date('tanggal_arsip');
             $table->text('keterangan')->nullable();
-            $table->foreignId('id_user')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('id_user')->constrained('users', 'id_user')->cascadeOnDelete();
             $table->timestamps();
         });
     }

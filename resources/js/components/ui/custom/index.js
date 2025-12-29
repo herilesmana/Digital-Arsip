@@ -3,6 +3,8 @@
 
 export { CustomButton } from './CustomButton';
 export { CustomCard } from './CustomCard';
+export { CustomDatePicker } from './CustomDatePicker';
+export { CustomFileUpload } from './CustomFileUpload';
 export { CustomInput } from './CustomInput';
 export { CustomSelect } from './CustomSelect';
 export { CustomTable } from './CustomTable';
