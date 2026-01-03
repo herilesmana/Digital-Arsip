@@ -1,0 +1,29 @@
+# app-config.yaml
+
+app:
+  name: SampleApp
+  version: 1.0.0
+  environment: production
+
+server:
+  host: localhost
+  port: 8080
+  debug: false
+
+database:
+  type: postgres
+  host: db.example.com
+  port: 5432
+  name: sample_db
+  credentials:
+    username: admin
+    password: secretpassword
+
+features:
+  - authentication
+  - logging
+  - metrics
+
+logging:
+  level: info
+  file: /var/log/sampleapp.log
